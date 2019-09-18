@@ -1,0 +1,25 @@
+R<v>:=PolynomialRing(Rationals());
+S<n>:=PolynomialRing(R);
+F:=-27*(v^10 - 4*v^8 + 6*v^6 - 4*v^4 + v^2)*(n^4 + 24*n^3 + 192*n^2 + 512*n) + 16*(v^12 + 42*v^10 + 591*v^8 + 2828*v^6 + 591*v^4 + 42*v^2 + 1)*(n^3 - 3*n^2 + 3*n - 1);
+G:=S!F;
+K<v>:=FunctionField(Rationals());
+L<n>:=ext<K|G>;
+
+O:=MaximalOrderFinite(L);
+
+r:=v;
+// also for v+1,v-1
+s:=L!r;
+
+I:=ideal<O|s>;
+
+f:=Factorization(I);
+
+P1:=f[1][1];
+P2:=f[2][1];
+Degree(P1);
+Degree(P2);
+
+T:=InfinitePlaces(L);
+Degree(T[1]);
+Degree(T[2]);

@@ -1,0 +1,8 @@
+A<c,r>:=AffineSpace(Rationals(),2);
+F:=(c^6 + 36*c^5 + 480*c^4 + 2880*c^3 + 7680*c^2 + 9216*c + 4096)*(r^3 - 3*r^2 + 3*r - 1) + 27*(r^4 + 24*r^3 + 192*r^2 + 512*r)*(c + 11);
+C:=Curve(A,F);
+Genus(C);
+D:=ProjectiveClosure(C);
+P:=C![-11,1];
+F:=EllipticCurve(D,P);
+CremonaReference(F);
